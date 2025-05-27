@@ -1,4 +1,4 @@
-import {ObtenerListaCompleta} from "./modulos/funcioneshttp.js"
+import {ObtenerListaCompleta, ObtenerProducto} from "./modulos/funcioneshttp.js"
 
 
 
@@ -8,16 +8,14 @@ if(process.argv[3] === "GET"){
 
     //lista completa de productos
     if(recurso === "products" || recurso === "products/"){
-        ObtenerListaCompleta();
+        await ObtenerListaCompleta();
     }else 
     //producto en específico
     if(recurso.includes("/") && recurso[recurso.indexOf("/")+1]!==null  ){
         const id = recurso.slice(recurso.indexOf("/")+1);
 
-        console.log(`pasaste el id ${id}`);
+        await ObtenerProducto(id)
     }
-    
-    
 }
 
 if(process.argv[3] === "POST"){
@@ -25,6 +23,6 @@ if(process.argv[3] === "POST"){
 }
 
 if(process.argv[3] === "DELETE"){
-    //hombres trabajando
+    
 }
 

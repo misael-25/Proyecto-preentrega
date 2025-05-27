@@ -9,16 +9,14 @@ export async function ObtenerListaCompleta(){
 
 
 export async function ObtenerProducto(id) {
-
-
-    fetch('https://fakestoreapi.com/products',{
-        method:"GET",
-        body: JSON.stringify({id:`${id}`})
-    })
+    fetch(`https://fakestoreapi.com/products/${id}`)
     .then(response => response.json())
     .then(data => console.log(data))
-    .catch(console.error("No se pudo encontrar el producto especificado"))
+    .catch(console.error("No se pudo encontrar el objeto especificado"))
 }
 
 
 
+export async function BorrarProducto(params) {
+    
+}
