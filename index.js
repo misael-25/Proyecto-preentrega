@@ -1,4 +1,4 @@
-import {ObtenerListaCompleta, ObtenerProducto} from "./modulos/funcioneshttp.js"
+import {ObtenerListaCompleta, ObtenerProducto, BorrarProducto} from "./modulos/funcioneshttp.js"
 
 
 
@@ -23,6 +23,14 @@ if(process.argv[3] === "POST"){
 }
 
 if(process.argv[3] === "DELETE"){
-    
+    const recurso = process.argv[4]
+
+    if(recurso.includes("/") && recurso[recurso.indexOf("/")+1]!==null  ){
+        const id = recurso.slice(recurso.indexOf("/")+1);
+
+        await BorrarProducto(id)
+    }else{
+        console.error("Debe ingresar un id de producto")
+    }
 }
 
