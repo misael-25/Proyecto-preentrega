@@ -11,21 +11,23 @@ if(process.argv[3] === "GET"){
         await ObtenerListaCompleta();
     }else 
     //producto en específico
-    if(recurso.includes("/") && recurso[recurso.indexOf("/")+1]!==null  ){
+    if(recurso.includes("/") && recurso[recurso.indexOf("/")+1]!==undefined  ){
         const id = recurso.slice(recurso.indexOf("/")+1);
 
         await ObtenerProducto(id)
     }
 }
 
+//agregar producto
 if(process.argv[3] === "POST"){
     //hombres trabajando
 }
 
+//borrar un producto
 if(process.argv[3] === "DELETE"){
     const recurso = process.argv[4]
 
-    if(recurso.includes("/") && recurso[recurso.indexOf("/")+1]!==null  ){
+    if(recurso.includes("/") && recurso[recurso.indexOf("/")+1]!==undefined  ){
         const id = recurso.slice(recurso.indexOf("/")+1);
 
         await BorrarProducto(id)
