@@ -2,14 +2,14 @@ import {ObtenerListaCompleta, ObtenerProducto, BorrarProducto, CrearProducto} fr
 import process from 'node:process'
 
 //verifica que se haya escrito la palabra "products"
-const recurso = process.argv[4]
+const recurso = process.argv[3]
 if(!recurso.includes("products")){
         console.error("El recurso no es valido")
         process.exit()
 }
 
 //ahi anda
-if(process.argv[3] === "GET"){
+if(process.argv[2] === "GET"){
     //lista completa de productos
     if(recurso === "products"){
         await ObtenerListaCompleta();
@@ -24,7 +24,7 @@ if(process.argv[3] === "GET"){
 
 
 //borrar un producto
-if(process.argv[3] === "DELETE"){
+if(process.argv[2] === "DELETE"){
 
     if(recurso.includes("/") && recurso[recurso.indexOf("/")+1]!==undefined){
         const id = recurso.slice(recurso.indexOf("/")+1);
@@ -36,10 +36,10 @@ if(process.argv[3] === "DELETE"){
 }
 
 //agregar producto
-if(process.argv[3] === "POST"){
-    const titulo = process.argv[5]
-    const precio = process.argv[6]
-    const categoria = process.argv[7]
+if(process.argv[2] === "POST"){
+    const titulo = process.argv[4]
+    const precio = process.argv[5]
+    const categoria = process.argv[6]
 
     if(titulo!== undefined && precio!==undefined && categoria!==undefined){
         const productoNuevo = {
