@@ -1,6 +1,6 @@
 
 
-export async function hola(){
+export async function ObtenerListaCompleta(){
 
     fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
