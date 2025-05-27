@@ -3,15 +3,12 @@
     "version": "1.0.0",
     "main": "proyectofinal.js",
     "scripts": {
-        "start": "node procesos.js",
-        "procesos": "node procesos.js --watch"
+        "start": "node index.js",
+        "procesos": "node index.js --watch"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "type": "module",
-    "description": "",
-    "dependencies": {
-        "axios": "^1.9.0"
-    }
+    "description": ""
 }
