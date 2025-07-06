@@ -1,10 +1,9 @@
 import express from 'express'
+import productController from '../controllers/products.controller.js'
 
 const router = express.Router()
 
-router.get('/products',(req,res) => {
-    res.send("Listado de productos")
-});
+router.get('/products',productController.getAllProducts);
 
 router.get('/products/:id',(req,res) => {
     const idProducto = req.params.id;
