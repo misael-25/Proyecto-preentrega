@@ -4,7 +4,16 @@ const getAllProducts = () => {
     return productsModel.getAllProducts()
 }
 
+const getProductById = (id) => {
+    const producto = productsModel.getProductById(id)
+
+    if(producto){
+        return producto
+    }else{
+        return undefined
+    }
+}
 
 
 
-export default {getAllProducts}
+export default {getAllProducts,getProductById}

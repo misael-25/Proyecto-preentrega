@@ -19,4 +19,16 @@ const getAllProducts = async () => {
     return productos;
 }
 
-export default {getAllProducts}
+const getProductById = async (id) => {
+    const producto = await getDoc(doc(productsCollection,id));
+
+    if(producto.exists()){
+        const datos = producto.data()
+        datos.id = producto.id
+        return datos
+    }else{
+        return undefined
+    }    
+}
+
+export default {getAllProducts,getProductById}
