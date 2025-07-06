@@ -1,24 +1,29 @@
 {
-  "name": "proyecto-preentrega",
-  "version": "1.0.0",
-  "description": "version final del proyecto",
-  "homepage": "https://github.com/misael-25/Proyecto-preentrega#readme",
-  "bugs": {
-    "url": "https://github.com/misael-25/Proyecto-preentrega/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/misael-25/Proyecto-preentrega.git"
-  },
-  "license": "ISC",
-  "author": "",
-  "type": "module",
-  "main": "app.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "express": "^5.1.0"
-  }
+    "name": "proyecto-preentrega",
+    "version": "1.0.0",
+    "description": "version final del proyecto",
+    "homepage": "https://github.com/misael-25/Proyecto-preentrega#readme",
+    "bugs": {
+        "url": "https://github.com/misael-25/Proyecto-preentrega/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/misael-25/Proyecto-preentrega.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "app.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "node --watch index.js"
+    },
+    "dependencies": {
+        "body-parser": "^2.2.0",
+        "cors": "^2.8.5",
+        "dotenv": "^17.0.1",
+        "express": "^5.1.0",
+        "firebase": "^11.10.0",
+        "jsonwebtoken": "^9.0.2"
+    }
 }

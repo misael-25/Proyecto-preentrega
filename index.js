@@ -1,13 +1,21 @@
 import express from 'express'
+import productsRouter from './src/routes/products.routes.js'
+import authRouter from './src/routes/auth.routes.js'
+import cors from 'cors'
+import bodyParser from 'body-parser';
 
 const app = express();
 
-const PORT = 3000
+app.use(bodyParser.json())
+app.use(cors())
 
-app.listen(PORT, () => {
-    console.log(`Puerto ${PORT}`)
+app.use("/auth",authRouter)
+app.use("/api",productsRouter)
+app.use((req,res,next) => {
+    res.status(404).send("No se pudo encontrar el recurso")
 })
 
-app.get('/', (req,res) => {
-    res.send("Hola mundo desde express")
+const PORT = 3000
+app.listen(PORT, () => {
+    console.log(`Puerto ${PORT}`)
 })
