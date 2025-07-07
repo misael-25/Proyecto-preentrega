@@ -7,10 +7,7 @@ router.get('/products',productController.getAllProducts);
 
 router.get('/products/:id',productController.getProductById);
 
-router.delete('/products/:id',(req,res) => {
-    const idProducto = req.params.id;
-    res.send(`Id de producto a borrar: ${idProducto}`)
-});
+router.delete('/products/:id',productController.deleteProductById);
 
 router.post('/products/create',(req,res) => {
     res.send(`Creando producto nuevoo`)

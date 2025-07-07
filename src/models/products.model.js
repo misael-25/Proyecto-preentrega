@@ -31,4 +31,20 @@ const getProductById = async (id) => {
     }    
 }
 
-export default {getAllProducts,getProductById}
+
+const deleteProductById = async (id) => {
+    const producto = await getDoc(doc(productsCollection,id));
+    
+    if(producto.exists()){
+        try{
+            await deleteDoc(doc(productsCollection,id))
+            return true
+        }catch{
+            return false
+        }
+    }else{
+        return false
+    }   
+}
+
+export default {getAllProducts,getProductById, deleteProductById}
