@@ -40,7 +40,7 @@ const deleteProductById = async (req,res) => {
         const producto = await productServices.deleteProduct(idProducto)
 
         if(producto){
-            res.status(200).json("producto eliminado")
+            res.status(204).json("producto eliminado")
         }else{
             res.status(404).json("Producto no encontrado")
         }
