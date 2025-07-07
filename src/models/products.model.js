@@ -5,7 +5,8 @@ import {
     getDoc,
     addDoc,
     deleteDoc,
-    doc
+    doc,
+    setDoc
 } from 'firebase/firestore'
 
 const productsCollection = collection(db,'products')
@@ -47,4 +48,31 @@ const deleteProductById = async (id) => {
     }   
 }
 
-export default {getAllProducts,getProductById, deleteProductById}
+const createProduct = async(name,description,price) =>{
+    const listaProductos = await getAllProducts()
+    
+    let idProductoNuevo;
+
+    if(listaProductos.length === 0){
+        idProductoNuevo = 1
+    }else{
+        idProductoNuevo = Number(listaProductos[listaProductos.length-1].id)
+        idProductoNuevo++
+    }
+        
+    const productoNuevo = {
+        name:name,
+        description:description,
+        price:price
+    }
+
+    try{
+        await setDoc(doc(productsCollection,String(idProductoNuevo)),productoNuevo)
+        return true
+    }catch(error){
+        console.log(error)
+        return false
+    }
+}
+
+export default {getAllProducts,getProductById, deleteProductById,createProduct}

@@ -14,7 +14,7 @@ const getProductById = (id) => {
     }
 }
 
-const deleteProduct = (async id => {
+const deleteProduct = async(id) => {
     const producto = await productsModel.deleteProductById(id)
 
     if(producto){
@@ -22,6 +22,16 @@ const deleteProduct = (async id => {
     }else{
         return false
     }
-})
+}
 
-export default {getAllProducts,getProductById,deleteProduct}
+const createProduct = async(name,description,price) => {
+    const producto = await productsModel.createProduct(name,description,price)
+
+    if(producto){
+        return true
+    }else{
+        return false
+    }
+}
+
+export default {getAllProducts,getProductById,deleteProduct,createProduct}
