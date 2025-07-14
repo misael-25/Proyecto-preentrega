@@ -1,4 +1,4 @@
-Rutas
+Rutas API
 
 POST - /auth/login
 Parámetros body:
